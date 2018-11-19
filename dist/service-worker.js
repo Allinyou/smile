@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 importScripts(
-  "/smlie/dist/precache-manifest.a09a67880b7b208a543228458a8df889.js"
+  "/smile/dist/precache-manifest.a013619fc31795de5b2f6ce4368ffa9f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "smile"});
