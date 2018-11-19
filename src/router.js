@@ -18,7 +18,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        title: '主页',
+        title: '',
         auth: false,
       },
     },
@@ -27,7 +27,7 @@ const router = new Router({
       name: 'about',
       component: About,
       meta: {
-        title: '关于我',
+        title: '',
         auth: false,
       },
     },
