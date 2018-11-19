@@ -15,9 +15,9 @@ const Rem = () => {
 Rem();
 window.addEventListener('resize', Rem);
 
-let index = 1;
+let index = 2;
 const audio = new Audio();
-audio.src = C400000KSVf32VXoTE;   // songs[index]
+audio.src = Friendships;   // songs[index]
 audio.autoplay = true;
 // audio.loop = 'loop';
 audio.addEventListener('ended', () => {

@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <router-view/>
     <canvas id="canvas1" height="520" width="300"></canvas>
     <canvas id="canvas2" height="520" width="300"></canvas>
   </div>
