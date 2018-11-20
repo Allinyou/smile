@@ -1,6 +1,31 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="fullpage-container">
+      <div class="fullpage-wp" v-fullpage="opts" @afterChange="afterChange">
+        <div class="page-1 page">
+            <div class="filter"></div>
+            <span v-animate="{value: 'bounceInDown'}">笑 笑</span>
+            <img class="img-1" src="./assets/fff.gif" alt="" v-animate="{value: 'swing'}">  
+            <span v-animate="{value: 'bounceInUp'}">2018年10月18日</span>   
+        </div>
+        <div class="page-2 page">
+          <div class="filter"></div>
+          <img class="img-1" src="./assets/3.jpg" alt="" v-animate="{value: 'bounceInLeft'}">     
+          <img class="img-2" src="./assets/1.jpg" alt="" v-animate="{value: 'bounceInRight'}">
+          <img class="img-3" src="./assets/2.jpg" alt="" v-animate="{value: 'bounceInLeft'}">
+        </div>
+        <div class="page-3 page">
+          <p class="part-3" v-animate="{value: 'bounceInLeft', delay: 0}">vue-fullpage</p>
+          <p class="part-3" v-animate="{value: 'bounceInRight', delay: 600}">vue-fullpage</p>
+          <p class="part-3" v-animate="{value: 'zoomInDown', delay: 1200}">vue-fullpage</p>
+        </div>
+        <div class="page-4 page">
+            <div class="filter"></div>
+            <img class="img-1" src="./assets/362458738353902347.jpg" alt="" v-animate="{value: 'rollIn'}"> 
+        </div>
+      </div>
+    </div>
+    <div class="number">{{nownumber + 1}}/4</div>
     <canvas id="canvas1" height="520" width="300"></canvas>
     <canvas id="canvas2" height="520" width="300"></canvas>
   </div>
@@ -11,6 +36,18 @@ export default {
     return {
       color1: 'red',
       color2: 'green',
+      nownumber: 0,
+      opts: {
+        start: 0,
+        dir: 'v',
+        duration: 500,
+        preventWechat: true,
+        beforeChange: (prev, next) => {},
+        afterChange: (prev, next) => {
+          this.nownumber = next;
+          console.log(prev, next);
+        },
+      },
     };
   },
   methods: {
@@ -59,11 +96,14 @@ export default {
         requestAnimationFrame(drawFreqs);
       })();
     },
+    afterChange(prev,next) {
+      console.log(next);
+    }
   },
   mounted() {
-    const colors = ['red', 'orange', 'green', 'blue', 'cyan', 'purple'];
-    const randomIndex1 = Math.floor(Math.random() * 6);
-    const randomIndex2 = Math.floor(Math.random() * 6);
+    const colors = ['red', 'orange', 'cyan']; // , 'purple' 'blue', 'green', 
+    const randomIndex1 = Math.floor(Math.random() * 3);
+    const randomIndex2 = Math.floor(Math.random() * 3);
     this.color1 = colors[randomIndex1];
     this.color2 = colors[randomIndex2];
     this.drawFreq();
@@ -89,25 +129,116 @@ body{
 }
 @import './style/index.scss';
 #app {
+  position:fixed;
+  top:0;
+  left:0;
+  right: 0;
+  bottom:0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  background-color: #222;
 } 
-#canvas1{
+#canvas1,#canvas2{
   position: fixed;
   width: 30px;
   height: 52px;
+  z-index: 999;
+}
+#canvas1{
   left:0;
   bottom:20px;
-  z-index: 999;
 }
 #canvas2{
-  position: fixed;
-  width: 30px;
-  height: 52px;
   right:0;
   top:20px;
-  z-index: 999;
 }
+.number{
+  position: fixed;
+  height: 24px;;
+  right:0;
+  bottom:20px;
+  color:#fff;
+  line-height: 24px;
+  background-color: rgba(255, 255, 255,0.1);
+  padding:0 15px;
+  border-radius: 12px 0 0 12px;
+}
+.page{
+   position: relative;
+  .filter{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center 20%;
+    filter: blur(20px);
+    opacity: 0.5;
+    z-index: -1;
+  } 
+  .page-boxs{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// 第一页---------------------------------------------------------------------------------------------------------------------------
+.page-1{
+  display: flex!important;
+  @extend .column-center;
+  span{
+     color:#fff;
+     font-size:24px;
+  }
+  span:last-child{
+    font-size:0.32rem;
+  }
+  .filter{
+    background-image: url(./assets/fff.gif);
+    background-repeat: repeat;
+  }
+  img{
+    margin:30px auto;
+    display: block;
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+// 第二页---------------------------------------------------------------------------------------------------------------------------
+.page-2{
+  display: flex!important;
+  @extend .column-center;
+  img{
+    display: block;
+    width: 80%;
+  }
+  img:nth-of-type(2){
+    margin:20px 0;
+  }
+  color:$main-color;
+  .filter{
+    background-image: url(https://6d61-magic-d13079-1255581239.tcb.qcloud.la/330.jpg?sign=832950a9b929393ce05804a113a70b0f&t=1542688956);
+  }
+}
+
+// 第四页---------------------------------------------------------------------------------------------------------------------------
+.page-4{
+  display: flex!important;
+  @extend .column-center;
+  color:#fff;
+  .filter{
+    background-image: url(./assets/362458738353902347.jpg);
+  }
+  img{
+    display: block;
+    width: 80%;
+    opacity: 0;
+  }
+}
+
 </style>

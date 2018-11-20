@@ -1,11 +1,14 @@
 import Vue from 'vue';
 import App from '@/App';
+import 'animate.css';
+import 'vue-fullpage/vue-fullpage.css';
+import VueFullpage from 'vue-fullpage';
+
 import C400000KSVf32VXoTE from './assets/audio/C400000KSVf32VXoTE.mp3';
 import Friendships from './assets/audio/Friendships.mp3';
-import router from './router';
-import store from './store';
 import './registerServiceWorker';
 
+Vue.use(VueFullpage);
 Vue.config.productionTip = false;
 
 const Rem = () => {
@@ -19,7 +22,6 @@ let index = 2;
 const audio = new Audio();
 audio.src = Friendships;   // songs[index]
 audio.autoplay = true;
-// audio.loop = 'loop';
 audio.addEventListener('ended', () => {
   if (index == 1) {
     audio.src = Friendships;
@@ -32,8 +34,6 @@ audio.addEventListener('ended', () => {
 Vue.prototype.audio = audio;
 
 new Vue({
-  router,
-  store,
   render: h => h(App),
 }).$mount('#app');
 
