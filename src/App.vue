@@ -4,7 +4,7 @@
       <div class="fullpage-wp" v-fullpage="opts" @afterChange="afterChange">
         <div class="page-1 page">
             <div class="filter"></div>
-            <span v-animate="{value: 'bounceInDown'}">笑 笑</span>
+            <span v-animate="{value: 'bounceInDown'}">笑</span>
             <img class="img-1" src="./assets/fff.gif" alt="" v-animate="{value: 'swing'}">  
             <span v-animate="{value: 'bounceInUp'}">2018年10月18日</span>   
         </div>
@@ -192,7 +192,7 @@ body{
   @extend .column-center;
   span{
      color:#fff;
-     font-size:24px;
+     font-size:100px;
   }
   span:last-child{
     font-size:0.32rem;
@@ -202,7 +202,7 @@ body{
     background-repeat: repeat;
   }
   img{
-    margin:30px auto;
+    margin:50px auto 30px;
     display: block;
     width: 100%;
     opacity: 0;
