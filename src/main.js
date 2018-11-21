@@ -3,8 +3,6 @@ import App from '@/App';
 import 'animate.css';
 import 'vue-fullpage/vue-fullpage.css';
 import VueFullpage from 'vue-fullpage';
-
-import C400000KSVf32VXoTE from './assets/audio/C400000KSVf32VXoTE.mp3';
 import Friendships from './assets/audio/Friendships.mp3';
 import './registerServiceWorker';
 
@@ -18,19 +16,11 @@ const Rem = () => {
 Rem();
 window.addEventListener('resize', Rem);
 
-let index = 2;
+
 const audio = new Audio();
 audio.src = Friendships;   // songs[index]
 audio.autoplay = true;
-audio.addEventListener('ended', () => {
-  if (index == 1) {
-    audio.src = Friendships;
-    index = 2;
-  } else {
-    audio.src = C400000KSVf32VXoTE;
-    index = 1;
-  } 
-})
+audio.loop = 'loop';
 Vue.prototype.audio = audio;
 
 new Vue({

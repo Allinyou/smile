@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <div class="fullpage-container">
-      <div class="fullpage-wp" v-fullpage="opts" @afterChange="afterChange">
+      <div class="fullpage-wp" v-fullpage="opts">
         <div class="page-1 page">
             <div class="filter"></div>
             <span v-animate="{value: 'bounceInDown'}">笑</span>
-            <img class="img-1" src="./assets/fff.gif" alt="" v-animate="{value: 'swing'}">  
-            <span v-animate="{value: 'bounceInUp'}">2018年10月18日</span>   
+            <img class="img-1" src="./assets/20180406153029_636f1a3665c9e1c894d8fe343fe9a8e9_21.gif" alt="" v-animate="{value: 'swing'}">   
+            <img class="img-1" src="./assets/20180406153029_636f1a3665c9e1c894d8fe343fe9a8e9_44.gif" alt="" v-animate="{value: 'bounceIn'}">  
+            <span v-animate="{value: 'bounceInUp'}">2018年10月18日</span> 
         </div>
         <div class="page-2 page">
           <div class="filter"></div>
@@ -15,17 +16,36 @@
           <img class="img-3" src="./assets/2.jpg" alt="" v-animate="{value: 'bounceInLeft'}">
         </div>
         <div class="page-3 page">
-          <p class="part-3" v-animate="{value: 'bounceInLeft', delay: 0}">vue-fullpage</p>
-          <p class="part-3" v-animate="{value: 'bounceInRight', delay: 600}">vue-fullpage</p>
-          <p class="part-3" v-animate="{value: 'zoomInDown', delay: 1200}">vue-fullpage</p>
+            <div class="filter"></div>
+            <img class="img-1" src="./assets/486588782386983111.jpg" alt="" v-animate="{value: 'zoomIn'}"> 
         </div>
         <div class="page-4 page">
             <div class="filter"></div>
             <img class="img-1" src="./assets/362458738353902347.jpg" alt="" v-animate="{value: 'rollIn'}"> 
         </div>
+        <div class="page-5 page">
+            <div class="filter"></div>
+            <img class="img-1" src="./assets/375726187900958593.jpg" alt="" v-animate="{value: 'lightSpeedIn'}"> 
+        </div>
+        <div class="page-6 page">
+            <div class="filter"></div>
+            <img class="img-1" src="./assets/1a1fde891ab21dbc1985c60c3df90e1.jpg" alt="" v-animate="{value: 'flip'}"> 
+        </div>
+        <div class="page-7 page">
+            <div class="filter"></div>
+            <img class="img-1" src="./assets/b3648329a6b85c493414cc0a855b23a.jpg" alt="" v-animate="{value: 'rotateInDownRight'}"> 
+        </div>
+        <div class="page-8 page">
+            <div class="filter"></div>
+            <img class="img-1" src="./assets/8.jpg" alt="" v-animate="{value: 'fadeInUp'}"> 
+        </div>
+        <div class="page-9 page">
+            <div class="filter"></div>
+            <img class="img-1" src="./assets/9.jpg" alt="" v-animate="{value: 'flipInX'}"> 
+        </div>
       </div>
     </div>
-    <div class="number">{{nownumber + 1}}/4</div>
+    <div class="number fadeInRight animated">{{nownumber + 1}}/9</div>
     <canvas id="canvas1" height="520" width="300"></canvas>
     <canvas id="canvas2" height="520" width="300"></canvas>
   </div>
@@ -45,7 +65,6 @@ export default {
         beforeChange: (prev, next) => {},
         afterChange: (prev, next) => {
           this.nownumber = next;
-          console.log(prev, next);
         },
       },
     };
@@ -96,9 +115,6 @@ export default {
         requestAnimationFrame(drawFreqs);
       })();
     },
-    afterChange(prev,next) {
-      console.log(next);
-    }
   },
   mounted() {
     const colors = ['red', 'orange', 'cyan']; // , 'purple' 'blue', 'green', 
@@ -186,30 +202,36 @@ body{
   }
 }
 
-// 第一页---------------------------------------------------------------------------------------------------------------------------
+// 第1页---------------------------------------------------------------------------------------------------------------------------
 .page-1{
   display: flex!important;
-  @extend .column-center;
+  @extend .column-align-center;
   span{
-     color:#fff;
+     color:#ff00ff;
      font-size:100px;
+     margin-top:20px;
   }
-  span:last-child{
+  span:last-of-type{
     font-size:0.32rem;
+    margin-top:0;
   }
   .filter{
-    background-image: url(./assets/fff.gif);
+    background-image: url(./assets/20180406153029_636f1a3665c9e1c894d8fe343fe9a8e9_21.gif);
     background-repeat: repeat;
   }
   img{
-    margin:50px auto 30px;
+    margin:20px auto 10px;
     display: block;
     width: 100%;
     opacity: 0;
   }
+  img:last-of-type{
+    margin-top:10px;
+    width: 80%;
+  }
 }
 
-// 第二页---------------------------------------------------------------------------------------------------------------------------
+// 第2页---------------------------------------------------------------------------------------------------------------------------
 .page-2{
   display: flex!important;
   @extend .column-center;
@@ -226,7 +248,22 @@ body{
   }
 }
 
-// 第四页---------------------------------------------------------------------------------------------------------------------------
+// 第3页---------------------------------------------------------------------------------------------------------------------------
+.page-3{
+  display: flex!important;
+  @extend .column-center;
+  color:#fff;
+  .filter{
+    background-image: url(./assets/486588782386983111.jpg);
+  }
+  img{
+    display: block;
+    width: 80%;
+    opacity: 0;
+  }
+}
+
+// 第4页---------------------------------------------------------------------------------------------------------------------------
 .page-4{
   display: flex!important;
   @extend .column-center;
@@ -241,4 +278,76 @@ body{
   }
 }
 
+// 第5页---------------------------------------------------------------------------------------------------------------------------
+.page-5{
+  display: flex!important;
+  @extend .column-center;
+  color:#fff;
+  .filter{
+    background-image: url(./assets/375726187900958593.jpg);
+  }
+  img{
+    display: block;
+    width: 80%;
+    opacity: 0;
+  }
+}
+
+// 第6页---------------------------------------------------------------------------------------------------------------------------
+.page-6{
+  display: flex!important;
+  @extend .column-center;
+  color:#fff;
+  .filter{
+    background-image: url(./assets/1a1fde891ab21dbc1985c60c3df90e1.jpg);
+  }
+  img{
+    display: block;
+    width: 80%;
+    opacity: 0;
+  }
+}
+
+// 第7页---------------------------------------------------------------------------------------------------------------------------
+.page-7{
+  display: flex!important;
+  @extend .column-center;
+  color:#fff;
+  .filter{
+    background-image: url(./assets/b3648329a6b85c493414cc0a855b23a.jpg);
+  }
+  img{
+    display: block;
+    width: 80%;
+    opacity: 0;
+  }
+}
+// 第7页---------------------------------------------------------------------------------------------------------------------------
+.page-8{
+  display: flex!important;
+  @extend .column-center;
+  color:#fff;
+  .filter{
+    background-image: url(./assets/8.jpg);
+  }
+  img{
+    display: block;
+    width: 80%;
+    opacity: 0;
+  }
+}
+// 第7页---------------------------------------------------------------------------------------------------------------------------
+.page-9{
+  display: flex!important;
+  @extend .column-center;
+  color:#fff;
+  .filter{
+    background-image: url(./assets/9.jpg);
+  }
+  img{
+    display: block;
+    width: 80%;
+    opacity: 0;
+  }
+}
 </style>
