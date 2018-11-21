@@ -7,7 +7,7 @@
             <span v-animate="{value: 'bounceInDown'}">笑</span>
             <img class="img-1" src="./assets/20180406153029_636f1a3665c9e1c894d8fe343fe9a8e9_21.gif" alt="" v-animate="{value: 'swing'}">   
             <img class="img-1" src="./assets/20180406153029_636f1a3665c9e1c894d8fe343fe9a8e9_44.gif" alt="" v-animate="{value: 'bounceIn'}">  
-            <span v-animate="{value: 'bounceInUp'}">2018年10月18日</span> 
+            <span v-animate="{value: 'bounceInUp'}">农历2018年10月18日</span> 
         </div>
         <div class="page-2 page">
           <div class="filter"></div>

@@ -3,7 +3,7 @@ import App from '@/App';
 import 'animate.css';
 import 'vue-fullpage/vue-fullpage.css';
 import VueFullpage from 'vue-fullpage';
-import Friendships from './assets/audio/Friendships.mp3';
+import C400004FjJo32TISsY from './assets/audio/C400004FjJo32TISsY.mp3';
 import './registerServiceWorker';
 
 Vue.use(VueFullpage);
@@ -18,7 +18,7 @@ window.addEventListener('resize', Rem);
 
 
 const audio = new Audio();
-audio.src = Friendships;   // songs[index]
+audio.src = C400004FjJo32TISsY;   // songs[index]
 audio.autoplay = true;
 audio.loop = 'loop';
 Vue.prototype.audio = audio;
