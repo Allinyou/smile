@@ -68,7 +68,7 @@ self.__precacheManifest = [
     "url": "/smile/dist/img/1.8e365ac5.jpg"
   },
   {
-    "revision": "e6f8efd298e057a495f5b351ac7e738e",
+    "revision": "b23d450f593c4f0ba018228da2dfde24",
     "url": "/smile/dist/index.html"
   },
   {
